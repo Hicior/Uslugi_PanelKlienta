@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wybierz usługę - Mentzen Podatki</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Skorzystaj z usługi</h1>
+      <p class="form-description">
+        Wybierz usługę, która Cię interesuje. Skontaktujemy się z Tobą tak
+        szybko, jak to będzie możliwe.
+      </p>
+
+      <!-- Notification container for success/error messages -->
+      <div id="notification-container" class="notification-container"></div>
+
+      <form
+        id="serviceForm"
+        class="service-form"
+        action="https://formspree.io/f/mqapywwn"
+        method="POST">
+        <div class="services-container">
+          <!-- Single column for all services -->
+          <div class="service-column">
+            <table class="service-option-table">
+              <!-- Subscription Services -->
+              <tr class="service-group-header">
+                <td colspan="2">Usługi w ramach subskrypcji</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="radio"
+                    id="analiza-podatkowa"
+                    name="service"
+                    value="Analiza podatkowa" />
+                </td>
+                <td>
+                  <label for="analiza-podatkowa">Analiza podatkowa</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="radio"
+                    id="zakladanie-jdg"
+                    name="service"
+                    value="Zakładanie JDG" />
+                </td>
+                <td>
+                  <label for="zakladanie-jdg">Zakładanie JDG</label>
+                </td>
+              </tr>
+
+              <!-- Paid Services -->
+              <tr class="service-group-header">
+                <td colspan="2">Usługi płatne</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="radio"
+                    id="opinia-podatkowa"
+                    name="service"
+                    value="Opinia podatkowa" />
+                </td>
+                <td>
+                  <label for="opinia-podatkowa">Opinia podatkowa</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="radio"
+                    id="wniosek-interpretacja"
+                    name="service"
+                    value="Wniosek o interpretację" />
+                </td>
+                <td>
+                  <label for="wniosek-interpretacja"
+                    >Wniosek o interpretację podatkową</label
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="radio"
+                    id="wniosek-wis"
+                    name="service"
+                    value="Wniosek o WIS" />
+                </td>
+                <td>
+                  <label for="wniosek-wis">Wniosek o WIS</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="radio"
+                    id="wniosek-gus"
+                    name="service"
+                    value="Wniosek do GUS" />
+                </td>
+                <td>
+                  <label for="wniosek-gus">Wniosek do GUS</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="radio"
+                    id="pomoc-kontrola"
+                    name="service"
+                    value="Pomoc w kontroli podatkowej" />
+                </td>
+                <td>
+                  <label for="pomoc-kontrola"
+                    >Pomoc w kontroli podatkowej (PIT/CIT/ryczałt)</label
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="radio"
+                    id="pomoc-pit"
+                    name="service"
+                    value="Pomoc przy rozliczeniu PIT" />
+                </td>
+                <td>
+                  <label for="pomoc-pit">Pomoc przy rozliczeniu PIT</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="radio"
+                    id="audyt-vat"
+                    name="service"
+                    value="Audyt podatku VAT" />
+                </td>
+                <td>
+                  <label for="audyt-vat">Audyt podatku VAT</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="radio"
+                    id="wezwanie-zaplata"
+                    name="service"
+                    value="Przygotowanie wezwania do zapłaty" />
+                </td>
+                <td>
+                  <label for="wezwanie-zaplata"
+                    >Przygotowanie wezwania do zapłaty</label
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="radio"
+                    id="zakladanie-spolki"
+                    name="service"
+                    value="Zakładanie spółki w s24 i zmiany" />
+                </td>
+                <td>
+                  <label for="zakladanie-spolki"
+                    >Zakładanie spółki w s24 i zmiany</label
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="radio"
+                    id="audyt-prawny"
+                    name="service"
+                    value="Uproszczony audyt prawny" />
+                </td>
+                <td>
+                  <label for="audyt-prawny">Uproszczony audyt prawny</label>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="form-group">
+          <label for="name">Imię i nazwisko *</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Telefon *</label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+
+        <!-- Contact Preference -->
+        <div class="form-group">
+          <label>Jaką formę kontaktu preferujesz? *</label>
+          <div class="contact-preference">
+            <div class="preference-option">
+              <input
+                type="radio"
+                id="email-preference"
+                name="contact_preference"
+                value="email"
+                required />
+              <label for="email-preference">Wiadomość e-mail</label>
+            </div>
+            <div class="preference-option">
+              <input
+                type="radio"
+                id="phone-preference"
+                name="contact_preference"
+                value="phone" />
+              <label for="phone-preference">Telefon</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Opis sprawy *</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <div class="form-group file-upload-group">
+          <label>Załączniki</label>
+          <div class="file-upload-container">
+            <label for="file-input" class="file-upload-label">
+              <span class="file-upload-icon">📎</span>
+              <span class="file-upload-text">Dodaj pliki</span>
+            </label>
+            <input
+              type="file"
+              id="file-input"
+              multiple
+              class="file-upload-input" />
+
+            <!-- Hidden file inputs will be added here dynamically -->
+            <div id="hidden-file-inputs"></div>
+
+            <div id="file-list" class="file-list"></div>
+          </div>
+        </div>
+
+        <button type="submit" id="submit-button">
+          <span>Wyślij zgłoszenie</span>
+          <div class="spinner" id="submit-spinner"></div>
+        </button>
+      </form>
+    </div>
+
+    <script>
+      // Keep track of selected files and counter for unique input names
+      let selectedFiles = [];
+      let fileCounter = 0;
+      let formSubmitting = false;
+
+      // Handle adding files
+      document
+        .getElementById("file-input")
+        .addEventListener("change", function (e) {
+          // Add newly selected files to our array
+          if (this.files.length > 0) {
+            for (let i = 0; i < this.files.length; i++) {
+              const file = this.files[i];
+
+              // Create a hidden input for each file
+              const hiddenInput = document.createElement("input");
+              hiddenInput.type = "file";
+              hiddenInput.style.display = "none";
+              hiddenInput.name = `file-${fileCounter}`;
+              fileCounter++;
+
+              // Create a DataTransfer object and add the file
+              const dataTransfer = new DataTransfer();
+              dataTransfer.items.add(file);
+              hiddenInput.files = dataTransfer.files;
+
+              // Add to hidden inputs container
+              document
+                .getElementById("hidden-file-inputs")
+                .appendChild(hiddenInput);
+
+              // Add to our tracking array with reference to the input
+              selectedFiles.push({
+                file: file,
+                inputElement: hiddenInput,
+                id: `file-${Date.now()}-${Math.random()
+                  .toString(36)
+                  .substr(2, 9)}`,
+              });
+            }
+
+            // Clear the visible input
+            this.value = "";
+          }
+
+          // Update the displayed list
+          updateFileList();
+        });
+
+      // Update the file list display
+      function updateFileList() {
+        const fileList = document.getElementById("file-list");
+        fileList.innerHTML = "";
+
+        if (selectedFiles.length === 0) {
+          return;
+        }
+
+        for (let i = 0; i < selectedFiles.length; i++) {
+          const fileItem = document.createElement("div");
+          fileItem.className = "file-item";
+          fileItem.dataset.id = selectedFiles[i].id;
+
+          const file = selectedFiles[i].file;
+          const fileSize = formatFileSize(file.size);
+
+          fileItem.innerHTML = `
+            <div class="file-info">
+              <span class="file-name">${file.name}</span>
+              <span class="file-size">${fileSize}</span>
+            </div>
+            <button type="button" class="file-remove-btn" data-id="${selectedFiles[i].id}">✕</button>
+          `;
+
+          fileList.appendChild(fileItem);
+        }
+
+        // Add event listeners to remove buttons
+        const removeButtons = document.querySelectorAll(".file-remove-btn");
+        removeButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const fileId = this.getAttribute("data-id");
+            removeFile(fileId);
+          });
+        });
+      }
+
+      // Remove a specific file
+      function removeFile(fileId) {
+        // Find the file in our array
+        const fileIndex = selectedFiles.findIndex((item) => item.id === fileId);
+
+        if (fileIndex !== -1) {
+          // Remove the hidden input element
+          const inputElement = selectedFiles[fileIndex].inputElement;
+          if (inputElement && inputElement.parentNode) {
+            inputElement.parentNode.removeChild(inputElement);
+          }
+
+          // Remove from our array
+          selectedFiles.splice(fileIndex, 1);
+
+          // Update the displayed list
+          updateFileList();
+        }
+      }
+
+      // Format file size
+      function formatFileSize(bytes) {
+        if (bytes === 0) return "0 B";
+        const k = 1024;
+        const sizes = ["B", "KB", "MB", "GB"];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + " " + sizes[i];
+      }
+
+      // Show notification
+      function showNotification(message, type) {
+        const notificationContainer = document.getElementById(
+          "notification-container"
+        );
+        const notification = document.createElement("div");
+        notification.className = `notification ${type}`;
+        notification.innerHTML = `
+          <div class="notification-content">
+            <div class="notification-message">${message}</div>
+            <button type="button" class="notification-close">✕</button>
+          </div>
+        `;
+
+        // Add close button functionality
+        const closeButton = notification.querySelector(".notification-close");
+        closeButton.addEventListener("click", function () {
+          notification.classList.add("notification-hiding");
+          setTimeout(() => {
+            notificationContainer.removeChild(notification);
+          }, 300);
+        });
+
+        // Auto close after some time for success messages
+        if (type === "success") {
+          setTimeout(() => {
+            notification.classList.add("notification-hiding");
+            setTimeout(() => {
+              if (notification.parentNode) {
+                notificationContainer.removeChild(notification);
+              }
+            }, 300);
+          }, 5000);
+        }
+
+        notificationContainer.appendChild(notification);
+
+        // Add animated entrance
+        setTimeout(() => {
+          notification.classList.add("notification-visible");
+        }, 10);
+      }
+
+      // Toggle loading state
+      function setLoadingState(isLoading) {
+        const submitButton = document.getElementById("submit-button");
+        const spinner = document.getElementById("submit-spinner");
+
+        if (isLoading) {
+          formSubmitting = true;
+          submitButton.classList.add("loading");
+          spinner.style.display = "block";
+          submitButton.disabled = true;
+        } else {
+          formSubmitting = false;
+          submitButton.classList.remove("loading");
+          spinner.style.display = "none";
+          submitButton.disabled = false;
+        }
+      }
+
+      // Form submission validation
+      document
+        .getElementById("serviceForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          // Prevent multiple submissions
+          if (formSubmitting) {
+            return;
+          }
+
+          // Validate form
+          const serviceSelected = document.querySelector(
+            'input[name="service"]:checked'
+          );
+
+          if (!serviceSelected) {
+            showNotification("Proszę wybrać jedną usługę", "error");
+            return;
+          }
+
+          // Everything looks good, start loading state
+          setLoadingState(true);
+
+          const form = this;
+          const formData = new FormData(form);
+
+          try {
+            const response = await fetch(form.action, {
+              method: form.method,
+              body: formData,
+              headers: {
+                Accept: "application/json",
+              },
+            });
+
+            if (response.ok) {
+              showNotification(
+                "Dziękujemy! Twoja wiadomość została wysłana.",
+                "success"
+              );
+              form.reset();
+              selectedFiles = [];
+              document.getElementById("hidden-file-inputs").innerHTML = "";
+              fileCounter = 0;
+              updateFileList();
+            } else {
+              const data = await response.json();
+              showNotification(
+                "Wystąpił problem z wysłaniem formularza. " +
+                  (data.error || ""),
+                "error"
+              );
+            }
+          } catch (error) {
+            showNotification(
+              "Wystąpił problem z wysłaniem formularza. Spróbuj ponownie później.",
+              "error"
+            );
+            console.error(error);
+          } finally {
+            setLoadingState(false);
+          }
+        });
+
+      // Initialize file list
+      updateFileList();
+    </script>
+  </body>
+</html>

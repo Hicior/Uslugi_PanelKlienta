@@ -10,8 +10,8 @@
     <div class="container">
       <h1>Skorzystaj z usługi</h1>
       <p class="form-description">
-        Wybierz usługę, która Cię interesuje. Skontaktujemy się z Tobą tak
-        szybko, jak to będzie możliwe.
+        Wybierz usługę, która Cię interesuje. Nasi specjaliści zajmą się Twoją
+        sprawą profesjonalnie i skutecznie.
       </p>
 
       <!-- Notification container for success/error messages -->
@@ -31,15 +31,47 @@
                 <td colspan="2">Usługi w ramach subskrypcji</td>
               </tr>
               <tr>
-                <td>
-                  <input
-                    type="radio"
-                    id="analiza-podatkowa"
-                    name="service"
-                    value="Analiza podatkowa" />
+                <td colspan="2" class="special-link-row">
+                  <a
+                    href="https://form.jotform.com/250152624234346"
+                    target="_blank"
+                    class="special-service-link">
+                    <span>Analiza podatkowa</span>
+                    <span class="arrow-icon">→</span>
+                  </a>
                 </td>
-                <td>
-                  <label for="analiza-podatkowa">Analiza podatkowa</label>
+              </tr>
+              <tr>
+                <td colspan="2" class="special-link-row">
+                  <a
+                    href="https://form.jotform.com/240432559723356"
+                    target="_blank"
+                    class="special-service-link">
+                    <span>Uproszczony audyt podatkowy</span>
+                    <span class="arrow-icon">→</span>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" class="special-link-row dropdown-container">
+                  <div class="special-service-link dropdown-toggle">
+                    <span>Uproszczony audyt księgowy</span>
+                    <span class="arrow-icon dropdown-arrow">↓</span>
+                  </div>
+                  <div class="dropdown-content">
+                    <a
+                      href="https://form.jotform.com/241482029844358"
+                      target="_blank"
+                      class="dropdown-link"
+                      >KPiR</a
+                    >
+                    <a
+                      href="https://form.jotform.com/240993862836370"
+                      target="_blank"
+                      class="dropdown-link"
+                      >Księgi rachunkowe</a
+                    >
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -237,11 +269,26 @@
         </div>
 
         <div class="form-group file-upload-group">
-          <label>Załączniki</label>
+          <label
+            >Załączniki <span class="optional-label">(opcjonalnie)</span></label
+          >
           <div class="file-upload-container">
             <label for="file-input" class="file-upload-label">
-              <span class="file-upload-icon">📎</span>
-              <span class="file-upload-text">Dodaj pliki</span>
+              <svg
+                class="file-upload-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"></path>
+              </svg>
+              <span class="file-upload-text">Wybierz pliki</span>
             </label>
             <input
               type="file"
@@ -269,6 +316,22 @@
       let fileCounter = 0;
       let formSubmitting = false;
 
+      // Initialize the page
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize file list
+        updateFileList();
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+              behavior: "smooth",
+            });
+          });
+        });
+      });
+
       // Handle adding files
       document
         .getElementById("file-input")
@@ -277,6 +340,15 @@
           if (this.files.length > 0) {
             for (let i = 0; i < this.files.length; i++) {
               const file = this.files[i];
+
+              // Check file size (max 10MB)
+              if (file.size > 10 * 1024 * 1024) {
+                showNotification(
+                  `Plik "${file.name}" jest zbyt duży. Maksymalny rozmiar to 10MB.`,
+                  "error"
+                );
+                continue;
+              }
 
               // Create a hidden input for each file
               const hiddenInput = document.createElement("input");
@@ -505,9 +577,6 @@
             setLoadingState(false);
           }
         });
-
-      // Initialize file list
-      updateFileList();
     </script>
   </body>
 </html>

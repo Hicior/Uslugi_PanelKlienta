@@ -24,8 +24,6 @@ window.MentzenServices = (function () {
 
       // Set up a MutationObserver to watch for our container being added
       setupMutationObserver();
-
-      console.log("MentzenServices initialization setup complete");
     },
   };
 
@@ -42,8 +40,6 @@ window.MentzenServices = (function () {
         observer.disconnect();
         observer = null;
       }
-    } else {
-      console.log("Services wrapper not found, waiting for it to appear...");
     }
   }
 
@@ -91,15 +87,11 @@ window.MentzenServices = (function () {
       childList: true,
       subtree: true,
     });
-
-    console.log("MutationObserver started to look for services-wrapper");
   }
 
   // Initialize the form once the container is found
   function initializeForm(wrapper) {
     if (initialized) return;
-
-    console.log("Services wrapper found, initializing form...");
 
     // Initialize file list
     updateFileList();
@@ -109,7 +101,6 @@ window.MentzenServices = (function () {
 
     // Mark as initialized
     initialized = true;
-    console.log("Mentzen Services form initialized successfully");
   }
 
   function setupEventListeners() {
@@ -117,7 +108,6 @@ window.MentzenServices = (function () {
     const fileInput = document.getElementById("file-input");
     if (fileInput) {
       fileInput.addEventListener("change", handleFileInput);
-      console.log("File input event listener attached");
     } else {
       console.warn("File input element not found");
     }
@@ -126,7 +116,6 @@ window.MentzenServices = (function () {
     const serviceForm = document.getElementById("serviceForm");
     if (serviceForm) {
       serviceForm.addEventListener("submit", handleFormSubmit);
-      console.log("Form submission event listener attached");
     } else {
       console.warn("Service form element not found");
     }
@@ -145,8 +134,6 @@ window.MentzenServices = (function () {
 
   // Handle file input changes
   function handleFileInput(e) {
-    console.log("File input change detected, files:", this.files?.length || 0);
-
     // Add newly selected files to our array
     if (this.files && this.files.length > 0) {
       const hiddenInputs = document.getElementById("hidden-file-inputs");
@@ -190,10 +177,6 @@ window.MentzenServices = (function () {
             inputElement: hiddenInput,
             id: `file-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
           });
-
-          console.log(
-            `Added file: ${file.name} (${formatFileSize(file.size)})`
-          );
         } catch (error) {
           console.error("Error adding file:", error);
         }
@@ -218,11 +201,8 @@ window.MentzenServices = (function () {
     fileList.innerHTML = "";
 
     if (selectedFiles.length === 0) {
-      console.log("No files selected, file list cleared");
       return;
     }
-
-    console.log(`Updating file list with ${selectedFiles.length} files`);
 
     for (let i = 0; i < selectedFiles.length; i++) {
       const fileItem = document.createElement("div");
@@ -246,8 +226,6 @@ window.MentzenServices = (function () {
 
   // Remove a specific file
   function removeFile(fileId) {
-    console.log(`Removing file with ID: ${fileId}`);
-
     // Find the file in our array
     const fileIndex = selectedFiles.findIndex((item) => item.id === fileId);
 
@@ -259,9 +237,7 @@ window.MentzenServices = (function () {
       }
 
       // Remove from our array
-      const removedFile = selectedFiles[fileIndex];
       selectedFiles.splice(fileIndex, 1);
-      console.log(`Removed file: ${removedFile.file.name}`);
 
       // Update the displayed list
       updateFileList();
@@ -320,7 +296,6 @@ window.MentzenServices = (function () {
     }
 
     notificationContainer.appendChild(notification);
-    console.log(`Notification shown: ${type} - ${message}`);
 
     // Add animated entrance
     setTimeout(() => {
@@ -347,24 +322,20 @@ window.MentzenServices = (function () {
       submitButton.classList.add("loading");
       spinner.style.display = "block";
       submitButton.disabled = true;
-      console.log("Form submission in progress, loading state activated");
     } else {
       formSubmitting = false;
       submitButton.classList.remove("loading");
       spinner.style.display = "none";
       submitButton.disabled = false;
-      console.log("Form submission completed, loading state deactivated");
     }
   }
 
   // Handle form submission
   async function handleFormSubmit(event) {
     event.preventDefault();
-    console.log("Form submission initiated");
 
     // Prevent multiple submissions
     if (formSubmitting) {
-      console.log("Form already submitting, submission blocked");
       return;
     }
 
@@ -375,7 +346,6 @@ window.MentzenServices = (function () {
 
     if (!serviceSelected) {
       showNotification("Proszę wybrać jedną usługę", "error");
-      console.log("Form validation failed: No service selected");
       return;
     }
 
@@ -384,10 +354,8 @@ window.MentzenServices = (function () {
 
     const form = this;
     const formData = new FormData(form);
-    console.log("FormData created, form data being prepared for submission");
 
     try {
-      console.log(`Submitting form to: ${form.action}`);
       const response = await fetch(form.action, {
         method: form.method,
         body: formData,
@@ -397,7 +365,6 @@ window.MentzenServices = (function () {
       });
 
       if (response.ok) {
-        console.log("Form submitted successfully");
         showNotification(
           "Dziękujemy! Twoja wiadomość została wysłana.",
           "success"
@@ -440,7 +407,6 @@ window.MentzenServices.init();
 function initMentzenServices() {
   if (window.MentzenServices) {
     window.MentzenServices.init();
-    console.log("Manual initialization of MentzenServices triggered");
   } else {
     console.error("MentzenServices not available for manual initialization");
   }

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wybierz usługę - Mentzen Podatki</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="services-wrapper">
+      <div class="container">
+        <h1>Skorzystaj z usługi</h1>
+        <p class="form-description">
+          Wybierz usługę, która Cię interesuje. Nasi specjaliści zajmą się Twoją
+          sprawą profesjonalnie i skutecznie.
+        </p>
+
+        <!-- Notification container for success/error messages -->
+        <div id="notification-container" class="notification-container"></div>
+
+        <form
+          id="serviceForm"
+          class="service-form"
+          action="https://formspree.io/f/mqapywwn"
+          method="POST">
+          <div class="services-container">
+            <!-- Single column for all services -->
+            <div class="service-column">
+              <table class="service-option-table">
+                <!-- Subscription Services -->
+                <tr class="service-group-header">
+                  <td colspan="2">Usługi w ramach subskrypcji</td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="special-link-row">
+                    <a
+                      href="https://form.jotform.com/250152624234346"
+                      target="_blank"
+                      class="special-service-link">
+                      <span>Analiza podatkowa</span>
+                      <span class="arrow-icon">→</span>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="special-link-row">
+                    <a
+                      href="https://form.jotform.com/240432559723356"
+                      target="_blank"
+                      class="special-service-link">
+                      <span>Uproszczony audyt podatkowy</span>
+                      <span class="arrow-icon">→</span>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="special-link-row">
+                    <a
+                      href="https://form.jotform.com/240283691353053"
+                      target="_blank"
+                      class="special-service-link">
+                      <span>Uproszczony audyt prawny</span>
+                      <span class="arrow-icon">→</span>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="special-link-row dropdown-container">
+                    <div class="special-service-link dropdown-toggle">
+                      <span>Uproszczony audyt księgowy</span>
+                      <span class="arrow-icon dropdown-arrow">↓</span>
+                    </div>
+                    <div class="dropdown-content">
+                      <a
+                        href="https://form.jotform.com/241482029844358"
+                        target="_blank"
+                        class="dropdown-link"
+                        >KPiR</a
+                      >
+                      <a
+                        href="https://form.jotform.com/240993862836370"
+                        target="_blank"
+                        class="dropdown-link"
+                        >Księgi rachunkowe</a
+                      >
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="radio"
+                      id="zakladanie-jdg"
+                      name="service"
+                      value="Zakładanie JDG" />
+                  </td>
+                  <td>
+                    <label for="zakladanie-jdg">Zakładanie JDG</label>
+                  </td>
+                </tr>
+
+                <!-- Paid Services -->
+                <tr class="service-group-header">
+                  <td colspan="2">Usługi płatne</td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="radio"
+                      id="opinia-podatkowa"
+                      name="service"
+                      value="Opinia podatkowa" />
+                  </td>
+                  <td>
+                    <label for="opinia-podatkowa">Opinia podatkowa</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="radio"
+                      id="wniosek-interpretacja"
+                      name="service"
+                      value="Wniosek o interpretację" />
+                  </td>
+                  <td>
+                    <label for="wniosek-interpretacja"
+                      >Wniosek o interpretację podatkową</label
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="radio"
+                      id="wniosek-wis"
+                      name="service"
+                      value="Wniosek o WIS" />
+                  </td>
+                  <td>
+                    <label for="wniosek-wis">Wniosek o WIS</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="radio"
+                      id="wniosek-gus"
+                      name="service"
+                      value="Wniosek do GUS" />
+                  </td>
+                  <td>
+                    <label for="wniosek-gus">Wniosek do GUS</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="radio"
+                      id="pomoc-kontrola"
+                      name="service"
+                      value="Pomoc w kontroli podatkowej" />
+                  </td>
+                  <td>
+                    <label for="pomoc-kontrola"
+                      >Pomoc w kontroli podatkowej (PIT/CIT/ryczałt)</label
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="radio"
+                      id="pomoc-pit"
+                      name="service"
+                      value="Pomoc przy rozliczeniu PIT" />
+                  </td>
+                  <td>
+                    <label for="pomoc-pit">Pomoc przy rozliczeniu PIT</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="radio"
+                      id="audyt-vat"
+                      name="service"
+                      value="Audyt podatku VAT" />
+                  </td>
+                  <td>
+                    <label for="audyt-vat">Audyt podatku VAT</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="radio"
+                      id="wezwanie-zaplata"
+                      name="service"
+                      value="Przygotowanie wezwania do zapłaty" />
+                  </td>
+                  <td>
+                    <label for="wezwanie-zaplata"
+                      >Przygotowanie wezwania do zapłaty</label
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="radio"
+                      id="zakladanie-spolki"
+                      name="service"
+                      value="Zakładanie spółki w s24 i zmiany" />
+                  </td>
+                  <td>
+                    <label for="zakladanie-spolki"
+                      >Zakładanie spółki w s24 i zmiany</label
+                    >
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="form-group">
+            <label for="name">Imię i nazwisko *</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Telefon *</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+
+          <!-- Contact Preference -->
+          <div class="form-group">
+            <label>Jaką formę kontaktu preferujesz? *</label>
+            <div class="contact-preference">
+              <div class="preference-option">
+                <input
+                  type="radio"
+                  id="email-preference"
+                  name="contact_preference"
+                  value="email"
+                  required />
+                <label for="email-preference">Wiadomość e-mail</label>
+              </div>
+              <div class="preference-option">
+                <input
+                  type="radio"
+                  id="phone-preference"
+                  name="contact_preference"
+                  value="phone" />
+                <label for="phone-preference">Telefon</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Opis sprawy *</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <div class="form-group file-upload-group">
+            <label
+              >Załączniki
+              <span class="optional-label">(opcjonalnie)</span></label
+            >
+            <div class="file-upload-container">
+              <label for="file-input" class="file-upload-label">
+                <svg
+                  class="file-upload-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"></path>
+                </svg>
+                <span class="file-upload-text">Wybierz pliki</span>
+              </label>
+              <input
+                type="file"
+                id="file-input"
+                multiple
+                class="file-upload-input" />
+
+              <!-- Hidden file inputs will be added here dynamically -->
+              <div id="hidden-file-inputs"></div>
+
+              <div id="file-list" class="file-list"></div>
+            </div>
+          </div>
+
+          <button type="submit" id="submit-button">
+            <span>Wyślij zgłoszenie</span>
+            <div class="spinner" id="submit-spinner"></div>
+          </button>
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
